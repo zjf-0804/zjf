@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>太阳系运动</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: #000000;
+        }
+        div{
+            padding:0;
+            margin: 0;
+        }
+        .middle{
+            height: 1300px;
+            width: 1300px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .middle div{
+            position: absolute;
+        }
+        /* 计算sun居中位置top:left:（1300-100）/2 = 600px*/
+        .sun{
+            height: 100px;
+            width: 100px;
+            background:url("./img/sun.png") no-repeat;
+            top: 600px;;
+            left: 600px;
+        }
+        div[class*=track]{
+            border: 1px solid #555;
+            margin-top: -3px;
+            margin-left: -3px;
+        }
+        .first-track{
+            height: 150px;
+            width: 150px;
+            border-radius: 75px;
+            top: 575px;
+            left: 575px;
+        }
+       /* 运动的原理：
+            1、计算出每个星球的位置坐标;（通过固定定位）
+            2、给每个星球一个起始位置;（离太阳系的水平和竖直位置）transform-origin:属性;
+                ******主要的难点在于计算每个星球的起始位置******
+            3、运动时的轨迹是按照圆来转动，则需要写一个动画transform:rotate(360deg);
+            4、让每个星球进行匀速，并且离着太阳系近的星球转动的速度越快;*/
+        .first{
+            height: 50px;
+            width: 50px;
+            background: url("./img/2.png") no-repeat;
+            left: 700px;
+            top: 625px;
+            transform-origin: -50px 25px;
+            animation: rotation 2.4s linear infinite;
+        }
+        .second-track{
+            height: 260px;
+            width: 260px;
+            border-radius: 130px;
+            top: 520px;
+            left: 520px;
+        }
+        .second{
+            height: 60px;
+            width: 60px;
+            background: url("./img/3.png") no-repeat;
+            top: 620px;
+            left: 750px;
+            transform-origin: -100px 30px;
+            animation: rotation 6.16s linear infinite;
+        }
+        .third-track{
+            height: 370px;
+            width: 370px;
+            border-radius: 185px;
+            left: 465px;
+            top: 465px;
+        }
+        .third{
+            width: 60px;
+            height: 60px;
+            background: url("./img/4.png") no-repeat;
+            top: 620px;
+            left: 805px;
+            transform-origin: -155px 30px;
+            animation:rotation 10.05s linear infinite;
+        }
+        .four-track{
+            width: 480px;
+            height: 480px;
+            border-radius: 240px;
+            left: 415px;
+            top: 415px;
+        }
+        .four{
+            width: 50px;
+            height: 50px;
+            background:url("./img/5.png") no-repeat;
+            top: 625px;
+            left: 865px;
+            transform-origin: -215px 25px;
+            animation:rotation 19s linear infinite;
+        }
+        .five-track{
+            height: 620px;
+            width: 620px;
+            border-radius: 310px;
+            left: 345px;
+            top: 345px;
+        }
+        .five{
+            width: 80px;
+            height: 80px;
+            background: url("./img/6.png") no-repeat;
+            top: 610px;
+            left: 920px;
+            transform-origin:-270px 40px ;
+            animation:rotation 290s linear infinite;
+        }
+        .six-track{
+            height: 820px;
+            width: 820px;
+            border-radius:410px;
+            left: 245px;
+            top: 245px;
+        }
+        .six{
+            width: 120px;
+            height: 80px;
+            background:url("./img/7.png") no-repeat;
+            top: 610px;
+            left: 1000px;
+            transform-origin:-350px 40px;
+            animation: rotation 512s linear infinite;
+        }
+        .seven-track{
+            border-radius: 510px;
+            width: 1020px;
+            height: 1020px;
+            top: 145px;
+            left: 145px;
+        }
+        .seven{
+            width: 80px;
+            height: 80px;
+            background:url("./img/8.png") no-repeat;
+            top: 610px;
+            left: 1120px;
+            animation: rotation 840s linear infinite;
+            transform-origin: -470px 40px;
+        }
+        .eight-track{
+            border-radius: 595px;
+            width: 1190px;
+            height: 1190px;
+            left: 55px;
+            top: 55px;
+        }
+        .eight{
+            background: url(img/9.png) 0 0 no-repeat;
+            width: 70px;
+            height: 70px;
+            top: 615px;
+            left: 1210px;
+            animation: rotation 1648s linear infinite;
+            transform-origin: -560px 35px;
+        }
+
+        /*动画序列围绕盒子旋转360度*/
+        @keyframes rotation{
+            to{
+                transform: rotate(360deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div class="middle">
+    <div class="sun"></div>
+    <div class="first-track"></div>
+    <div class="first"></div>
+    <div class="second-track"></div>
+    <div class="second"></div>
+    <div class="third-track"></div>
+    <div class="third"></div>
+    <div class="four-track"></div>
+    <div class="four"></div>
+    <div class="five-track"></div>
+    <div class="five"></div>
+    <div class="six-track"></div>
+    <div class="six"></div>
+    <div class="seven-track"></div>
+    <div class="seven"></div>
+    <div class="eight-track"></div>
+    <div class="eight"></div>
+</div>
+</body>
+</html>
